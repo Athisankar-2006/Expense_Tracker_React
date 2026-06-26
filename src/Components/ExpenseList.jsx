@@ -17,7 +17,8 @@ function ExpenseList(){
     //    console.log(expense)
 
    const deletebtn=async(id)=>{
-      await deleteExpense();
+    console.log(id);
+      await deleteExpense(id);
        loadExpense();
    }
 return(

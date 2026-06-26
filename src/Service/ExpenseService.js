@@ -24,5 +24,5 @@ export const getbalance=()=>{
 }
 
 export const deleteExpense=(id)=>{
-    return axios.delete(`${BASE_URL}%{id}`)
+    return axios.delete(`${BASE_URL}${id}`)
 }
