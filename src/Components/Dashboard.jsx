@@ -1,4 +1,26 @@
+
+import { useState,useEffect } from "react";
+import { getTotalIncome,getTotalExpense,getbalance } from "../Service/ExpenseService";
+
 function Dashboard(){
+
+const [Texpense,setTexpense]=useState(0);
+const [Tincome,setTincome]=useState(0);
+const [Tbalance,setTbalance]=useState(0);
+
+useEffect(()=>{
+  loadData();
+  },[])
+
+const loadData=async()=>{
+    const exp=await getTotalExpense();
+    const inc=await getTotalIncome();
+    const bal=await getbalance();
+
+    setTexpense(exp.data);
+    setTincome(inc.data);
+    setTbalance(bal.data);
+  }
 
 
     return(
@@ -6,11 +28,11 @@ function Dashboard(){
         <>
 
         <div className="dash">
-
+  
             <h2>Dashboard</h2>
-            <h3>income:25000</h3>
-            <h3>expense:13600</h3>
-            <h3>balance:{25000-13600}</h3>
+            <h3>Total Expense:{Texpense}</h3>
+            <h3>Total Income:{Tincome}</h3>
+            <h3>balance:{Tbalance}</h3>
         </div>
         
     

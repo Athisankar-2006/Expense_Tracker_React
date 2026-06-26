@@ -1,5 +1,25 @@
+import { useState,useEffect } from "react";
+import { getAllExpense,deleteExpense } from "../Service/ExpenseService";
+
+
 function ExpenseList(){
 
+    const [expense,setExpense]=useState([]);
+
+    useEffect(()=>{
+        loadExpense();
+    },[])
+
+    const loadExpense=async()=>{
+        const ex=await getAllExpense();
+        setExpense(ex.data);
+    }
+    //    console.log(expense)
+
+   const deletebtn=async(id)=>{
+      await deleteExpense();
+       loadExpense();
+   }
 return(
 
     <>
@@ -8,33 +28,37 @@ return(
    <table border="1">
         <thead>
             <tr>
+                <th>Serial no</th>
                 <th>Title</th>
                 <th>Amount</th>
-                <th>Action</th>
                 <th>Type</th>
                 <th>Date</th>
+                <th>Delete</th>
             </tr>
         </thead>
 
         <tbody>
-            
-            <tr>
-                <td>no title</td>
-                <td>$100</td>
-                <td>it job</td>
-                <td>income</td>
-                <td>Every daya</td>
+            {
+              
+              expense.map(ex=>(
+
+               <tr key={ex.id}>
+                
+                <td>{ex.id}</td>
+                <td>{ex.title}</td>
+                <td>{ex.amount}</td>
+                <td>{ex.type}</td>
+                <td>{ex.date}</td>
+                <td>
+                    <button onClick={()=>{deletebtn(ex.id)}}>Delete</button>
+                </td>
 
             </tr>
 
-            <tr>
-                <td>no title</td>
-                <td>$100</td>
-                <td>it job</td>
-                <td>income</td>
-                <td>Every daya</td>
 
-            </tr>
+              ))
+            }
+          
 
 
         </tbody>
