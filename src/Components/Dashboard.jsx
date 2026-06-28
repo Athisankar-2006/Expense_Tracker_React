@@ -26,7 +26,7 @@ const loadData=async()=>{
     return(
 
         <>
-
+        
         <div className="dash">
   
             <h2>Dashboard</h2>

@@ -33,8 +33,9 @@ return(
                 <th>Title</th>
                 <th>Amount</th>
                 <th>Type</th>
+                <th>Description</th>
                 <th>Date</th>
-                <th>Delete</th>
+                <th>Action</th>
             </tr>
         </thead>
 
@@ -49,6 +50,7 @@ return(
                 <td>{ex.title}</td>
                 <td>{ex.amount}</td>
                 <td>{ex.type}</td>
+                <td>{ex.description}</td>
                 <td>{ex.date}</td>
                 <td>
                     <button onClick={()=>{deletebtn(ex.id)}}>Delete</button>

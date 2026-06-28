@@ -7,6 +7,11 @@ export const getAllExpense=()=>{
     return axios.get(BASE_URL);
 }
 
+export const addExpense=(expense)=>{
+    return axios.post(BASE_URL,expense);
+}
+
+
 
 
 export const getTotalIncome=()=>{
