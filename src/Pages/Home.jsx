@@ -4,9 +4,6 @@ import Dashboard from "../Components/Dashboard";
 import ExpenseForm from "../Components/ExpenseForm";
 import ExpenseList from "../Components/ExpenseList";
 
-
-
-
 function Home(){
 
 return(
@@ -16,8 +13,6 @@ return(
      <Dashboard/>
     <ExpenseList/>
 
-    <ExpenseForm/>
-    <CategoryForm/>
     </>
    
 )
